@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- PWA/沉浸式（保留你原来设置） -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#1c1917" />
+
+    <title>绝世食谱 - 沉浸式烹饪助手</title>
+
+    <!-- 图标（如果你有就放 public 或根目录；没有也不影响运行） -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./icon-192.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icon-180.png" />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            screens: {
+              landscape: { raw: "(orientation: landscape)" },
+              short: { raw: "(max-height: 500px)" }
+            },
+            animation: { "level-up": "levelUp 1s ease-out forwards" },
+            keyframes: {
+              levelUp: {
+                "0%": { transform: "scale(0.8)", opacity: "0" },
+                "50%": { transform: "scale(1.2)", opacity: "1" },
+                "100%": { transform: "scale(1)", opacity: "1" }
+              }
+            }
+          }
+        }
+      };
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-stone-100 overflow-hidden text-base md:text-lg">
+    <div id="root" class="h-full w-full"></div>
+    <script type="module" src="./src/main.jsx"></script>
+  </body>
+</html>
